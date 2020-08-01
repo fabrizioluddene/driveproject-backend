@@ -19,7 +19,7 @@ public class UserErrorController {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<GenericResponseDto> exceptionHandler(Exception ex) {
         GenericResponseDto responseDto = new GenericResponseDto();
-
+//gerardo
         if (ex instanceof DataIntegrityViolationException) {
             responseDto.setCode(ApplicationCodeEnum.UNIQUECONSTRAINT.getCode());
             responseDto.setDescription("User already present");
