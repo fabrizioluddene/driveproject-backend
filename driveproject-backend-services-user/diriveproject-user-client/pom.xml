@@ -12,6 +12,14 @@
 
     <artifactId>diriveproject-user-client</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>it.diriveproject</groupId>
+            <artifactId>driveproject-backend-commons</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 
     <properties>

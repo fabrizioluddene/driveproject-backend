@@ -30,6 +30,18 @@
 
 		</dependency>
 
+		<dependency>
+			<groupId>it.diriveproject</groupId>
+			<artifactId>driveproject-backend-database</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+
+		</dependency>
+		<dependency>
+			<groupId>it.diriveproject</groupId>
+			<artifactId>driveproject-backend-commons</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 
 	</dependencies>
 

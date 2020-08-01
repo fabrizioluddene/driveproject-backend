@@ -18,7 +18,9 @@
 
      <modules>
          <module>driveproject-backend-parent</module>
-        <module>driveproject-backend-services-user</module>
+         <module>driveproject-backend-services-user</module>
+         <module>driveproject-backend-database</module>
+         <module>driveproject-backend-commons</module>
         
     </modules>
 
