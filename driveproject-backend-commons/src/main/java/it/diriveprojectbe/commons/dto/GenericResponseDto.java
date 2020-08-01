@@ -11,6 +11,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GenericResponseDto {
-    private ApplicationCodeEnum code;
+    private String code;
     private String description;
 }

@@ -4,7 +4,8 @@ public enum ApplicationCodeEnum {
     SUCCESS("0000"),
     FIELD("0001"),
     UNIQUECONSTRAINT("0002"),
-    APPLICATIONERROR("9999");
+    APPLICATIONERROR("9999"),
+    NOTFOUND("0003");
     private final String code;
 
     private ApplicationCodeEnum(String code) {

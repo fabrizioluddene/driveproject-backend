@@ -1,6 +1,7 @@
 package it.diriveprojectbe.api.dto;
 
 
+import it.diriveprojectbe.commons.dto.GenericResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,12 +16,8 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Validated
-public class UserDto {
+public class UserDto extends UsernamePasswordDto {
     private Long id;
-    @NotBlank(message = "username.mandatory.field")
-    private String username;
-    @NotBlank(message = "password.mandatory.field")
-    private String password;
     @NotBlank(message = "firstName.mandatory.field")
     private String firstName;
     @NotBlank(message = "lastName.mandatory.field")
