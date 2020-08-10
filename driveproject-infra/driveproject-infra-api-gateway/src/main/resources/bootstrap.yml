@@ -1,0 +1,32 @@
+---
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE:http://localhost:8001/eureka}
+
+spring:
+  profiles:
+    active: native
+  mvc:
+    favicon:
+      enabled: false
+  application:
+    name: api-gateway
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        serviceId: config-server
+      failFast: false
+      retry:
+        initialInterval: 10000
+        maxInterval: 60000
+        maxAttempts: 12
+        multiplier: 10.1
+
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 260000
+
+ribbon:
+  ConnectTimeout: 10000
+  ReadTimeout: 120000
+
