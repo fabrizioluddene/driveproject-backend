@@ -1,0 +1,56 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE:http://localhost:8001/eureka}
+
+server:
+  port: 7001
+
+spring:
+  profiles:
+    active: native
+  datasource:
+    url: jdbc:mysql://localhost:3306/driveproject
+    username: root
+    password: admin1234
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  application:
+    name: user-service
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        serviceId: config-server
+      failFast: false
+      retry:
+        initialInterval: 10000
+        maxInterval: 60000
+        maxAttempts: 12
+        multiplier: 10.1
+
+api:
+  version: 1.0
+
+swagger:
+  enabled: true
+  title: Drive Project - User Service API
+  description: All user Api
+  useDefaultResponseMessages: false
+  enableUrlTemplating: false
+  deepLinking: true
+  defaultModelsExpandDepth: 1
+  defaultModelExpandDepth: 1
+  displayOperationId: false
+  displayRequestDuration: false
+  filter: false
+  maxDisplayedTags: 0
+  showExtensions: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: heapdump,liquibase,loggers,prometheus,threaddump,info,metrics,health

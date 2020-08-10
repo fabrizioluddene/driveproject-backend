@@ -21,6 +21,11 @@
          <module>driveproject-backend-services-user</module>
          <module>driveproject-backend-database</module>
          <module>driveproject-backend-commons</module>
+         <module>driveproject-infra-services-registry</module>
+         <module>driveproject-infra-config-server</module>
+         <module>driveproject-infra-api-gateway</module>
+
+
         
     </modules>
 

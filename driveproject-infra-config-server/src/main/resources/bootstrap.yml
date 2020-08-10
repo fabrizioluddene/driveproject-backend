@@ -1,0 +1,26 @@
+server:
+  port: 8002
+
+spring:
+  profiles: native
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: classpath:/offline-property-repo
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE:http://localhost:8001/eureka}
+---
+spring:
+  profiles: local
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL_DEFAULT_ZONE:http://localhost:8001/eureka}
+

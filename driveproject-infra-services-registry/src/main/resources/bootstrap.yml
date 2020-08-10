@@ -1,0 +1,28 @@
+server:
+  port: 8001
+
+management:
+  context-path: /private-intmon
+
+spring:
+  application:
+    name: registry-server
+  profiles:
+    active: local
+  datasource:
+    url: jdbc:mysql://localhost:3306/driveproject
+    username: root
+    password: admin1234
+eureka:
+  instance:
+    preferIpAddress: true
+    hostname: localhost
+    metadata-map:
+      management.context-path: ${management.context-path}
+    status-page-url-path: ${management.context-path}/info
+    health-check-url-path: ${management.context-path}/health
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
