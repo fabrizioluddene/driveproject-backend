@@ -6,7 +6,6 @@ import it.diriveprojectbe.commons.dto.GenericResponseDto;
 import it.diriveprojectbe.commons.message.ApplicationCodeEnum;
 import it.diriveprojectbe.userservice.api.dto.PasswordDto;
 import it.diriveprojectbe.userservice.api.dto.UserDto;
-import it.diriveprojectbe.userservice.api.dto.UsernameDto;
 import it.diriveprojectbe.userservice.api.excpetion.NoUserFoundException;
 import it.diriveprojectbe.apigateway.client.UserClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import static org.springframework.http.HttpStatus.NOT_FOUND;
-
 @Service
-public class DefaultJWTTokenService implements JWTTokenService {
+public class DefaultAuthenticationService implements AuthenticationService {
 
     @Autowired
     UserClient userClient;
@@ -35,8 +32,8 @@ public class DefaultJWTTokenService implements JWTTokenService {
         }else{
             switch (userDtoResponseEntity.getStatusCode()){
                 case NOT_FOUND:
-                    genericResponseDto.setDescription(ApplicationCodeEnum.NOTFOUND.getMessage());
-                    genericResponseDto.setCode(ApplicationCodeEnum.NOTFOUND.getCode());
+                    genericResponseDto.setDescription(ApplicationCodeEnum.USERNOTFOUND.getMessage());
+                    genericResponseDto.setCode(ApplicationCodeEnum.USERNOTFOUND.getCode());
                     jwtTokenResponse.setError(genericResponseDto);
                     break;
                 default:
@@ -49,5 +46,10 @@ public class DefaultJWTTokenService implements JWTTokenService {
         }
         return  jwtTokenResponse;
 
+    }
+
+    @Override
+    public GenericResponseDto addUser(UserDto userDto) {
+        return userClient.addUser(userDto).getBody();
     }
 }

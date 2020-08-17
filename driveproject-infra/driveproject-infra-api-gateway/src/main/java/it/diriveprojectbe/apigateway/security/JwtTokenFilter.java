@@ -64,6 +64,10 @@ public class JwtTokenFilter extends GenericFilterBean {
                 messageError = ApplicationCodeEnum.NOTFOUND.getMessage();
                 codeError = ApplicationCodeEnum.NOTFOUND.getCode();
                 jwtTokenHasError =true;
+            }catch (JWTAuthenticationException e){
+                messageError = ApplicationCodeEnum.USERNOTFOUND.getMessage();
+                codeError = ApplicationCodeEnum.USERNOTFOUND.getCode();
+                jwtTokenHasError =true;
             }
 
         } else {
