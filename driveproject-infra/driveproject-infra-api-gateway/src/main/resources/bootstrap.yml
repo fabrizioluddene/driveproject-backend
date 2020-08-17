@@ -26,6 +26,10 @@ spring:
 
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 260000
 
+feign:
+  hystrix:
+    enabled: true
+
 ribbon:
   ConnectTimeout: 10000
   ReadTimeout: 120000

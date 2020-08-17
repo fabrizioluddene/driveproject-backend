@@ -1,9 +1,10 @@
-package it.diriveprojectbe.api.business;
+package it.diriveprojectbe.userservice.api.business;
 
-import it.diriveprojectbe.api.dto.UserDto;
-import it.diriveprojectbe.api.dto.UsernamePasswordDto;
-import it.diriveprojectbe.api.excpetion.NoUserFoundException;
-import it.diriveprojectbe.api.repository.UserRepository;
+import it.diriveprojectbe.userservice.api.dto.PasswordDto;
+import it.diriveprojectbe.userservice.api.dto.UserDto;
+import it.diriveprojectbe.userservice.api.dto.UsernameDto;
+import it.diriveprojectbe.userservice.api.excpetion.NoUserFoundException;
+import it.diriveprojectbe.userservice.api.repository.UserRepository;
 import it.diriveprojectbe.commons.dto.GenericResponseDto;
 import it.diriveprojectbe.commons.message.ApplicationCodeEnum;
 import it.diriveprojectbe.commons.util.DriveProjectCommonsUtil;
@@ -33,7 +34,7 @@ public class DefaultUserService implements  UserService{
     }
 
     @Override
-    public UserDto getUserByUsernameAndPassword(UsernamePasswordDto usernamePasswordDto) throws NoUserFoundException {
+    public UserDto getUserByUsernameAndPassword(PasswordDto usernamePasswordDto) throws NoUserFoundException {
         String username =usernamePasswordDto.getUsername();
         String password =DriveProjectCommonsUtil.ecodeString( usernamePasswordDto.getPassword());
         User user =userRepository.getUserByUsernameAndPassword(username,password);;
@@ -49,4 +50,23 @@ public class DefaultUserService implements  UserService{
 
         return userResponse;
     }
+
+    @Override
+    public UserDto getUserByUsername(UsernameDto usernamePasswordDto) throws NoUserFoundException {
+        String username =usernamePasswordDto.getUsername();
+
+        User user =userRepository.getUserByUsername(username);
+        if (user ==null){
+            throw new NoUserFoundException();
+        }
+        UserDto userResponse =new UserDto();
+        userResponse.setFirstName(user.getFirstName());
+        userResponse.setId(user.getId());
+        userResponse.setLastName(user.getLastName());
+        userResponse.setUsername(user.getUsername());
+
+
+        return userResponse;
+    }
+
 }

@@ -1,13 +1,14 @@
-package it.diriveprojectbe.api;
+package it.diriveprojectbe.userservice.api;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import it.diriveprojectbe.api.dto.UserDto;
-import it.diriveprojectbe.api.dto.UsernamePasswordDto;
-import it.diriveprojectbe.api.excpetion.NoUserFoundException;
 import it.diriveprojectbe.commons.dto.GenericResponseDto;
+import it.diriveprojectbe.userservice.api.dto.PasswordDto;
+import it.diriveprojectbe.userservice.api.dto.UserDto;
+import it.diriveprojectbe.userservice.api.dto.UsernameDto;
+import it.diriveprojectbe.userservice.api.excpetion.NoUserFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,16 +28,25 @@ public interface UserApi {
             method = RequestMethod.PUT)
     ResponseEntity<GenericResponseDto> addUser(@Valid @RequestBody UserDto userDto);
 
-    @ApiOperation(value = "GetUser", nickname = "GetUser", notes = "get user", tags={  })
+    @ApiOperation(value = "getUserByUsernameAndPassword", nickname = "getUserByUsernameAndPassword", notes = "get user", tags={  })
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Status 200", response = String.class),
             @ApiResponse(code = 403, message = "Status 403", response = String.class) })
     @RequestMapping(value = "/api/v1/user-by-username-password",
             produces = { "application/json" },
             method = RequestMethod.POST)
-    ResponseEntity<UserDto> getUserByUsernameAndPassword(@Valid @RequestBody UsernamePasswordDto userUsernamePasswordDto) throws NoUserFoundException;
+
+    ResponseEntity<UserDto> getUserByUsernameAndPassword(@Valid @RequestBody PasswordDto userUsernamePasswordDto) throws NoUserFoundException;
 
 
+    @ApiOperation(value = "getUserByUsername", nickname = "getUserByUsername", notes = "get user by ueser name", tags={  })
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Status 200", response = String.class),
+            @ApiResponse(code = 403, message = "Status 403", response = String.class) })
+    @RequestMapping(value = "/api/v1/user-by-username",
+            produces = { "application/json" },
+            method = RequestMethod.POST)
+    ResponseEntity<UserDto> getUserByUsername(@Valid @RequestBody UsernameDto userUsernamePasswordDto) throws NoUserFoundException;
 
 
 }

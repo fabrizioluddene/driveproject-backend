@@ -1,4 +1,4 @@
-package it.diriveprojectbe.api.config;
+package it.diriveprojectbe.userservice.api.config;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;

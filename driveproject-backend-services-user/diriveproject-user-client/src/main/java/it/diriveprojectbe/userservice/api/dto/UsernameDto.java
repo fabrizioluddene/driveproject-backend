@@ -1,5 +1,6 @@
-package it.diriveprojectbe.api.dto;
+package it.diriveprojectbe.userservice.api.dto;
 
+import it.diriveprojectbe.commons.dto.GenericResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,9 +13,11 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 @NoArgsConstructor
 @Validated
-public class UsernamePasswordDto {
+public class UsernameDto {
+
+    GenericResponseDto error;
+
     @NotBlank(message = "username.mandatory.field")
     private String username;
-    @NotBlank(message = "password.mandatory.field")
-    private String password;
+
 }

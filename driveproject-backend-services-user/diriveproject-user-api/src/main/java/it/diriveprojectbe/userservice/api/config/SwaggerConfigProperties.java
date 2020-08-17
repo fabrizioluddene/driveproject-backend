@@ -1,4 +1,4 @@
-package it.diriveprojectbe.api.config;
+package it.diriveprojectbe.userservice.api.config;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
