@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>diriveproject-backend-parent</artifactId>
+        <groupId>it.diriveproject</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../driveproject-backend-parent/pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>it.diriveproject</groupId>
+    <artifactId>driveproject-backend-services-project</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>diriveproject-project-client</module>
+        <module>diriveproject-project-api</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>it.diriveproject</groupId>
+            <artifactId>driveproject-backend-commons</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+</project>

@@ -2,10 +2,10 @@ package it.diriveprojectbe.userservice.api.controller;
 
 import it.diriveprojectbe.userservice.api.UserApi;
 import it.diriveprojectbe.userservice.api.business.UserService;
-import it.diriveprojectbe.userservice.api.dto.PasswordDto;
-import it.diriveprojectbe.userservice.api.dto.UserDto;
-import it.diriveprojectbe.userservice.api.dto.UsernameDto;
-import it.diriveprojectbe.userservice.api.excpetion.NoUserFoundException;
+import it.diriveprojectbe.project.api.dto.PasswordDto;
+import it.diriveprojectbe.project.api.dto.UserDto;
+import it.diriveprojectbe.project.api.dto.UsernameDto;
+import it.diriveprojectbe.project.api.excpetion.NoUserFoundException;
 import it.diriveprojectbe.commons.dto.GenericResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

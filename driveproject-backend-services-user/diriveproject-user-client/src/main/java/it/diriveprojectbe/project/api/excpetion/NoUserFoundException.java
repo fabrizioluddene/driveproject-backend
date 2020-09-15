@@ -1,4 +1,4 @@
-package it.diriveprojectbe.userservice.api.excpetion;
+package it.diriveprojectbe.project.api.excpetion;
 
 import it.diriveprojectbe.commons.message.ApplicationCodeEnum;
 

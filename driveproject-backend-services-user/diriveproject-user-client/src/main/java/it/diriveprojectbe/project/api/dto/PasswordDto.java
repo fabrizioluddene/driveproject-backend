@@ -1,4 +1,4 @@
-package it.diriveprojectbe.userservice.api.dto;
+package it.diriveprojectbe.project.api.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

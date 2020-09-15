@@ -1,9 +1,9 @@
 package it.diriveprojectbe.userservice.api.business;
 
-import it.diriveprojectbe.userservice.api.dto.PasswordDto;
-import it.diriveprojectbe.userservice.api.dto.UserDto;
-import it.diriveprojectbe.userservice.api.dto.UsernameDto;
-import it.diriveprojectbe.userservice.api.excpetion.NoUserFoundException;
+import it.diriveprojectbe.project.api.dto.PasswordDto;
+import it.diriveprojectbe.project.api.dto.UserDto;
+import it.diriveprojectbe.project.api.dto.UsernameDto;
+import it.diriveprojectbe.project.api.excpetion.NoUserFoundException;
 import it.diriveprojectbe.commons.dto.GenericResponseDto;
 
 public interface UserService {

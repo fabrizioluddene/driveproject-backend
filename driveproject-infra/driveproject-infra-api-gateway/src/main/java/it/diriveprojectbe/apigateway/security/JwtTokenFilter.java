@@ -3,17 +3,11 @@ package it.diriveprojectbe.apigateway.security;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.JwtException;
 import it.diriveprojectbe.commons.message.ApplicationCodeEnum;
-import it.diriveprojectbe.userservice.api.excpetion.NoUserFoundException;
+import it.diriveprojectbe.project.api.excpetion.NoUserFoundException;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.web.filter.GenericFilterBean;
 
 import javax.servlet.FilterChain;
@@ -23,7 +17,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.time.LocalDateTime;
 
 public class JwtTokenFilter extends GenericFilterBean {
     private JwtTokenProvider jwtTokenProvider;
@@ -88,6 +81,7 @@ public class JwtTokenFilter extends GenericFilterBean {
         } else {
             Authentication auth = jwtTokenProvider.getAuthentication(token, request);
             SecurityContextHolder.getContext().setAuthentication(auth);
+
         }
 
         filterChain.doFilter(req, res);

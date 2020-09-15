@@ -6,16 +6,14 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import it.diriveprojectbe.apigateway.client.UserClient;
 import it.diriveprojectbe.apigateway.dto.JWTTokenResponse;
-import it.diriveprojectbe.userservice.api.dto.UserDto;
-import it.diriveprojectbe.userservice.api.dto.UsernameDto;
-import it.diriveprojectbe.userservice.api.excpetion.NoUserFoundException;
+import it.diriveprojectbe.project.api.dto.UserDto;
+import it.diriveprojectbe.project.api.dto.UsernameDto;
+import it.diriveprojectbe.project.api.excpetion.NoUserFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -23,7 +21,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Date;
-import java.util.List;
 
 @Service
 public class JwtTokenProvider {
@@ -73,7 +70,6 @@ public class JwtTokenProvider {
     }
 
     public void validateToken(String token) throws JwtException, IllegalArgumentException, NoUserFoundException {
-        Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
         UsernameDto usernameDto = new UserDto();
         usernameDto.setUsername(getUsername(token));
         UserDto userDto = userClient.getUserByUsername(usernameDto).getBody();
@@ -84,6 +80,7 @@ public class JwtTokenProvider {
     }
 
     public String getUsername(String token) {
+
         return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getSubject();
     }
 

@@ -1,6 +1,6 @@
-package it.diriveprojectbe.apigateway.Controller;
+package it.diriveprojectbe.apigateway.controller;
 
-import it.diriveprojectbe.userservice.api.excpetion.NoUserFoundException;
+import it.diriveprojectbe.project.api.excpetion.NoUserFoundException;
 import it.diriveprojectbe.commons.dto.GenericResponseDto;
 import it.diriveprojectbe.commons.message.ApplicationCodeEnum;
 

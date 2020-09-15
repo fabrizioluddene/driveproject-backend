@@ -1,13 +1,12 @@
 package it.diriveprojectbe.apigateway.client;
 
 import feign.hystrix.FallbackFactory;
-import it.diriveprojectbe.userservice.api.dto.PasswordDto;
-import it.diriveprojectbe.userservice.api.dto.UserDto;
-import it.diriveprojectbe.userservice.api.dto.UsernameDto;
-import it.diriveprojectbe.userservice.api.excpetion.NoUserFoundException;
+import it.diriveprojectbe.project.api.dto.PasswordDto;
+import it.diriveprojectbe.project.api.dto.UserDto;
+import it.diriveprojectbe.project.api.dto.UsernameDto;
+import it.diriveprojectbe.project.api.excpetion.NoUserFoundException;
 import it.diriveprojectbe.commons.dto.GenericResponseDto;
 import it.diriveprojectbe.commons.message.ApplicationCodeEnum;
-import org.hibernate.validator.internal.engine.messageinterpolation.parser.ELState;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;

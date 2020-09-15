@@ -1,4 +1,4 @@
-package it.diriveprojectbe.apigateway.Controller;
+package it.diriveprojectbe.apigateway.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -7,9 +7,9 @@ import io.swagger.annotations.ApiResponses;
 import it.diriveprojectbe.apigateway.dto.JWTTokenResponse;
 import it.diriveprojectbe.commons.dto.GenericResponseDto;
 import it.diriveprojectbe.commons.message.ApplicationCodeEnum;
-import it.diriveprojectbe.userservice.api.dto.PasswordDto;
-import it.diriveprojectbe.userservice.api.dto.UserDto;
-import it.diriveprojectbe.userservice.api.excpetion.NoUserFoundException;
+import it.diriveprojectbe.project.api.dto.PasswordDto;
+import it.diriveprojectbe.project.api.dto.UserDto;
+import it.diriveprojectbe.project.api.excpetion.NoUserFoundException;
 import it.diriveprojectbe.apigateway.business.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
