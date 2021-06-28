@@ -2,20 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>it.diriveproject</groupId>
-    <artifactId>driveproject-backend-commons</artifactId>
+    <artifactId>driveproject-infra</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <dependencies>
+    <modules>
+        <module>driveproject-infra-services-registry</module>
+        <module>driveproject-infra-config-server</module>
+        <module>driveproject-infra-api-gateway</module>
+    </modules>
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
 
-        </dependency>
-    </dependencies>
 </project>
